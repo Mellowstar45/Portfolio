@@ -10,19 +10,19 @@ const PROJECTS = [
   {
     id: 1,
     title: "E-commerce Website",
-    description: "A fully functional online store built with React and Node.js",
+    description: "A fully functional E-commerce website built with React and Symfony",
     longDescription:
-      "Developed a complete e-commerce solution with user authentication",
-    imageSrc: "/placeholder.svg?height=450&width=350",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
+      "",
+    imageSrc: "/Panier.png",
+    technologies: ["React", "PHP", "Symfony", "MySQL", "CSS"],
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A productivity app created using Vue.js and Firebase",
-    longDescription: "Designed an intuitive interface for managing daily tasks",
-    imageSrc: "/placeholder.svg?height=450&width=350",
-    technologies: ["Vue.js", "Firebase", "Vuex", "Tailwind CSS"],
+    title: "LowBack",
+    description: "A project whose aim is to be a backend as a service",
+    longDescription: "",
+    imageSrc: "/LowBack.png",
+    technologies: ["NextJS", "PostgresSQL", ".NET", "C#","NodeJS","Python", "Tailwind CSS"],
   },
   {
     id: 3,
@@ -30,25 +30,16 @@ const PROJECTS = [
     description: "A personal portfolio website built with Next.js",
     longDescription:
       "Designed and developed a modern portfolio to showcase projects",
-    imageSrc: "/placeholder.svg?height=450&width=350",
-    technologies: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+    imageSrc: "/Portfolio2.png",
+    technologies: ["Next.js", "Tailwind CSS", "Embla"],
   },
   {
     id: 4,
-    title: "Weather Application",
-    description: "A weather forecast app using OpenWeather API",
-    longDescription:
-      "Built a clean interface showing current weather and forecasts",
-    imageSrc: "/placeholder.svg?height=450&width=350",
-    technologies: ["JavaScript", "HTML5", "CSS3", "REST API"],
-  },
-  {
-    id: 5,
-    title: "Social Media Dashboard",
-    description: "An analytics dashboard for social media accounts",
-    longDescription: "Developed a comprehensive dashboard showing key metrics",
-    imageSrc: "/placeholder.svg?height=450&width=350",
-    technologies: ["React", "D3.js", "Node.js", "Express", "MongoDB"],
+    title: "Twitter Wish",
+    description: "An app whose aim is to replicate Twitter functionalities",
+    longDescription: "",
+    imageSrc: "/twitterwish.png",
+    technologies: ["Javascript(ES6)", "HTML", "CSS", "TailwindCSS", "PHP"],
   },
 ];
 

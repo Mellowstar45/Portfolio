@@ -30,7 +30,7 @@ export function About() {
         Want to see more?
       </h3>
       <a
-        href="/resume.pdf"
+        href="/CV Nicolas Ramanantsoa MSC.pdf"
         download
         className="flex flex-row-reverse items-center justify-center gap-2 bg-[#FF9F87] hover:bg-[#FF8B6E] text-white rounded-full px-8 py-3 w-full md:w-auto transition-colors"
       >

@@ -1,8 +1,11 @@
+import Image from "next/image";
+
 export const ProjectCard = ({
   project,
 }: {
   project: {
     title: string;
+    imageSrc: string;
     description: string;
     longDescription: string;
     technologies: string[];
@@ -16,7 +19,12 @@ export const ProjectCard = ({
           style={{ height: "350px" }}
         >
           <div className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-500">
-            Image placeholder
+            <Image
+              src={project.imageSrc}
+              height={450}
+              width={350}
+              alt={project.title}
+            />
           </div>
         </div>
       </div>
