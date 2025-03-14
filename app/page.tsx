@@ -14,6 +14,6 @@ export default function Page() {
       <Projects />
       <Skills />
       <Contact />
-    </div>
+    </div>c
   );
 }
