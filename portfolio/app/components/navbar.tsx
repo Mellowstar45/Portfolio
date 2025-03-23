@@ -134,7 +134,7 @@ export function Navbar() {
 
       <aside
         className={cn(
-          "fixed left-0 top-0 bottom-0 z-40 bg-[#FFD7CC] py-8 transition-all duration-500 hidden md:flex flex-col items-center",
+          "fixed left-0 top-0 bottom-0 z-40 py-8 transition-all duration-500 hidden md:flex flex-col items-center",
           isScrolled
             ? "translate-x-0 w-[80px] hover:w-[180px]"
             : "translate-x-[-100%] w-0",
@@ -142,21 +142,19 @@ export function Navbar() {
         )}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <div className="mb-12">
-          <h1 className="text-[#141414] font-bold text-xl">NR</h1>
-        </div>
-        <ul className="flex flex-col gap-8 items-center w-full">
+        <ul className="flex flex-col gap-8 items-center w-full mt-20">
           {navItems.map((item) => (
             <li key={item.name} className="w-full px-4">
               <button
                 onClick={() => handleNavClick(item.name.toLowerCase())}
                 onMouseEnter={() => setHoveredItem(item.name.toLowerCase())}
                 className={cn(
-                  "flex items-center py-3 px-3 rounded-full w-full",
-                  "font-medium transition-all duration-300 relative",
+                  "flex items-center py-3 px-3 rounded-full w-full bg-[#FFD7CC]",
+                  "font-medium transition-all duration-300 relative",  
                   activeSection === item.name.toLowerCase()
                     ? "bg-[#FFB5A1] text-white"
-                    : "text-[#141414] hover:bg-[#FFB5A1]/50"
+                    : "text-[#141414] hover:bg-[#FFB5A1]",
+                    hoveredItem === item.name.toLowerCase() ? "w-auto" : "w-[48px]",
                 )}
               >
                 <div className="flex-shrink-0">
