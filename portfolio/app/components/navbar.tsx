@@ -11,11 +11,11 @@ export function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const navItems = [
-    { name: "Home", icon: Home },
-    { name: "About", icon: User },
-    { name: "Projects", icon: Briefcase },
-    { name: "Skills", icon: Code2 },
-    { name: "Contact", icon: Mail },
+    { name: "Home", icon: Home, id: "home" },
+    { name: "About", icon: User, id: "about" },
+    { name: "Projects", icon: Briefcase, id: "projects" },
+    { name: "Skills", icon: Code2, id: "skills" },
+    { name: "Contact", icon: Mail, id: "contact" },
   ];
 
   useEffect(() => {
@@ -66,16 +66,21 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 bg-[#FFD7CC] py-3 px-6 transition-all duration-500",
           isScrolled && "md:translate-y-[-100%]"
         )}
+        aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <h1 className="text-[#141414] font-bold text-xl">NR</h1>
 
-            <ul className="hidden md:flex items-center gap-4">
+            <ul className="hidden md:flex items-center gap-4" role="menubar">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <button
-                    onClick={() => handleNavClick(item.name.toLowerCase())}
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.id);
+                    }}
                     className={cn(
                       "flex items-center gap-2 px-4 py-2 rounded-full",
                       "font-medium transition-all duration-300",
@@ -83,10 +88,14 @@ export function Navbar() {
                         ? "bg-[#FFB5A1] text-white"
                         : "text-[#141414] hover:bg-[#FFB5A1]/50"
                     )}
+                    role="menuitem"
+                    aria-current={
+                      activeSection === item.id ? "page" : undefined
+                    }
                   >
-                    <item.icon size={20} strokeWidth={2} />
+                    <item.icon size={20} strokeWidth={2} aria-hidden="true" />
                     <span>{item.name}</span>
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -94,11 +103,14 @@ export function Navbar() {
             <button
               className="md:hidden text-[#141414]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? (
-                <X size={24} strokeWidth={2} />
+                <X size={24} strokeWidth={2} aria-hidden="true" />
               ) : (
-                <Menu size={24} strokeWidth={2} />
+                <Menu size={24} strokeWidth={2} aria-hidden="true" />
               )}
             </button>
           </div>
@@ -106,16 +118,22 @@ export function Navbar() {
       </nav>
 
       <div
+        id="mobile-menu"
         className={cn(
           "fixed inset-0 z-40 bg-[#FFD7CC] pt-20 px-6 transition-all duration-300 md:hidden",
           isMobileMenuOpen ? "translate-y-0" : "translate-y-[-100%]"
         )}
+        aria-hidden={!isMobileMenuOpen}
       >
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4" role="menu">
           {navItems.map((item) => (
             <li key={item.name}>
-              <button
-                onClick={() => handleNavClick(item.name.toLowerCase())}
+              <a
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.id);
+                }}
                 className={cn(
                   "flex items-center gap-2 px-4 py-3 rounded-full w-full",
                   "font-medium transition-all duration-300",
@@ -123,10 +141,12 @@ export function Navbar() {
                     ? "bg-[#FFB5A1] text-white"
                     : "text-[#141414] hover:bg-[#FFB5A1]/50"
                 )}
+                role="menuitem"
+                aria-current={activeSection === item.id ? "page" : undefined}
               >
-                <item.icon size={24} strokeWidth={2} />
+                <item.icon size={24} strokeWidth={2} aria-hidden="true" />
                 <span>{item.name}</span>
-              </button>
+              </a>
             </li>
           ))}
         </ul>
@@ -141,24 +161,37 @@ export function Navbar() {
           "overflow-hidden"
         )}
         onMouseLeave={() => setHoveredItem(null)}
+        aria-label="Side navigation"
+        aria-hidden={!isScrolled}
       >
-        <ul className="flex flex-col gap-8 items-center w-full mt-20">
+        <ul
+          className="flex flex-col gap-8 items-center w-full mt-20"
+          role="menu"
+        >
           {navItems.map((item) => (
             <li key={item.name} className="w-full px-4">
-              <button
-                onClick={() => handleNavClick(item.name.toLowerCase())}
+              <a
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.id);
+                }}
                 onMouseEnter={() => setHoveredItem(item.name.toLowerCase())}
                 className={cn(
                   "flex items-center py-3 px-3 rounded-full w-full bg-[#FFD7CC]",
-                  "font-medium transition-all duration-300 relative",  
+                  "font-medium transition-all duration-300 relative",
                   activeSection === item.name.toLowerCase()
                     ? "bg-[#FFB5A1] text-white"
                     : "text-[#141414] hover:bg-[#FFB5A1]",
-                    hoveredItem === item.name.toLowerCase() ? "w-auto" : "w-[48px]",
+                  hoveredItem === item.name.toLowerCase()
+                    ? "w-auto"
+                    : "w-[48px]"
                 )}
+                role="menuitem"
+                aria-current={activeSection === item.id ? "page" : undefined}
               >
                 <div className="flex-shrink-0">
-                  <item.icon size={24} strokeWidth={2} />
+                  <item.icon size={24} strokeWidth={2} aria-hidden="true" />
                 </div>
 
                 <div
@@ -171,8 +204,9 @@ export function Navbar() {
                   )}
                 >
                   <span className="whitespace-nowrap">{item.name}</span>
+                  <span className="sr-only">{item.name}</span>
                 </div>
-              </button>
+              </a>
             </li>
           ))}
         </ul>

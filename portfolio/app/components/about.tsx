@@ -55,7 +55,7 @@ export function About() {
 
       <div className="flex flex-wrap items-center gap-4 mt-8">
         <h3 className="text-3xl font-bold text-[#141414] mr-4">Education</h3>
-        <div className="bg-[#FFD7CC] px-6 py-2 rounded-full">
+        <div className="bg-[#F8BDA0] px-6 py-2 rounded-full">
           <Image
             width={120}
             height={120}
@@ -63,13 +63,13 @@ export function About() {
             alt="Web@cadémie logo"
           ></Image>
         </div>
-        <div className="bg-[#FFD7CC] px-4 py-2 rounded-full">2nd Year</div>
+        <div className="bg-[#F8BDA0] px-4 py-2 rounded-full">2nd Year</div>
       </div>
 
       <div className="flex flex-wrap items-center gap-4 mt-8">
         <h3 className="text-3xl font-bold text-[#141414] mr-4">Hobbies</h3>
         {["Video Games", "Chess", "Boxing"].map((hobby, index) => (
-          <span key={index} className="bg-[#FFD7CC] px-6 py-2 rounded-full">
+          <span key={index} className="bg-[#F8BDA0] px-6 py-2 rounded-full">
             {hobby}
           </span>
         ))}
