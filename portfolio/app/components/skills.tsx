@@ -12,7 +12,7 @@ function SkillIcon({ name, icon }: SkillIconProps) {
       <img
         src={icon || "/placeholder.svg?height=30&width=30"}
         alt={`${name} icon`}
-        className="w-7 h-7"
+        className="w-9 h-9"
       />
       <span className="text-[#141414] font-medium">{name}</span>
     </div>
@@ -64,7 +64,7 @@ export function Skills() {
             {technologies.map((tech) => (
               <SkillIcon key={tech.name} {...tech} />
             ))}
-            <div className="bg-[#F8BDA0] rounded-full p-3 flex items-center justify-center max-w-[200px] mx-auto w-full">
+            <div className="bg-[#F8BDA0] rounded-full p-3 flex items-center justify-center  col-span-2  mx-auto w-full">
               <span className="text-[#141414] font-medium">
                 and more in progress...
               </span>
