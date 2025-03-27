@@ -14,7 +14,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-center sm:p-6">
+    <section
+      className="w-full flex items-center justify-center sm:p-6"
+      id="contact"
+    >
       <div className="w-full max-w-md bg-[#ffc7ab] rounded-lg p-5 sm:p-6">
         <h2 className="text-3xl font-bold text-center mb-5 text-[#333]">
           Contact Me
@@ -85,7 +88,7 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

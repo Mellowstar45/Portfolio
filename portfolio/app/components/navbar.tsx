@@ -40,6 +40,12 @@ export function Navbar() {
         ) {
           setActiveSection(section.id);
         }
+        if (
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 2
+        ) {
+          setActiveSection("contact");
+        }
       });
     };
 
