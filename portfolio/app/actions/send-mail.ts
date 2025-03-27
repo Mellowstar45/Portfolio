@@ -1,30 +1,23 @@
-"use server"
+"use server";
 
 import AdminMailer from "lowback-admin-mailer";
-const mailer= new AdminMailer(process.env.SECRET_KEY)
+const mailer = new AdminMailer(process.env.SECRET_KEY);
 
 export default async function sendMail(
-  name: string,
+  email: string,
   subject: string,
   content: string
 ): Promise<{ success: boolean; message: string }> {
-  if (!name || !subject || !content) {
+  if (!email || !subject || !content) {
     return { success: false, message: "All fields are required." };
   }
 
-  try {
-    await mailer
-      .send(content)
-      .subject(`From ${name}: ${subject}`)
-      .to("nicolasramanantsoa345@gmail.com");
+  const fullContent = `Email: ${email}\n\n${content}`;
 
-    return { success: true, message: "Email sent successfully." };
-  } catch (error) {
-    console.error("Error sending email:", error);
-
-    return {
-      success: false,
-      message: "Something went wrong. Please try again later.",
-    };
-  }
+  return mailer
+    .subject(subject)
+    .to("nicolasramanantsoa345@gmail.com")
+    .send(fullContent)
+    .then(() => ({ success: true, message: "Email sent successfully." }))
+    .catch((e: string) => ({ success: false, message: e }));
 }
