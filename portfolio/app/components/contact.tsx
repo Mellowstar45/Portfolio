@@ -12,6 +12,10 @@ const Contact = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     sendMail(email, subject, content);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setEmail("");
+    setSubject("");
+    setContent("");
   };
 
   return (
