@@ -1,19 +1,20 @@
+"use server";
 import { supabase } from "../utils/client";
 import { unstable_cache } from "next/cache";
 
 export type Project = {
   id: number;
   title: string;
-  image: string;
-  desc: string;
-  longdesc?: string;
+  imageSrc: string;
+  description: string;
   technologies: string[];
+  githubUrl: string | null;
 };
 
 export const getProjects = unstable_cache(
   async (): Promise<Project[]> => {
     const { data, error } = await supabase
-      .from("projects")
+      .from("Projects")
       .select("*")
       .order("id", { ascending: false });
 
