@@ -18,7 +18,7 @@ const Home = () => {
     >
       <div className="container mx-auto px-4 text-center z-10">
         <h2 className={`${aptos.className}text-2xl md:text-5xl font-bold`}>
-          Hello, I'm
+          Hello, Im
         </h2>
         <h1
           className={`${extraaptos.className} text-5xl md:text-7xl font-bold mb-6 animate-fade-in`}
