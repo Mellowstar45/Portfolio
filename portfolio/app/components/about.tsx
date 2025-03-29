@@ -44,11 +44,15 @@ export function About() {
   return (
     <Box
       id="about"
-      title="About Me"
       imageSrc="/Moi.jpg"
       imageAlt="Nicolas Ramanantsoa"
       footer={downloadSection}
     >
+      <h2
+        className={`${extraaptos.className}text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#141414] mb-4 md:mb-8`}
+      >
+        About Me
+      </h2>
       <p
         className={`${aptos.className} text-lg text-[#333333] leading-relaxed`}
       >
