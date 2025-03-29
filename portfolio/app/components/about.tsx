@@ -3,6 +3,7 @@ import React from "react";
 import { Box } from "./shared/box";
 import { Download } from "lucide-react";
 import Image from "next/image";
+import { aptos, extraaptos } from "../utils/fonts";
 
 export function About() {
   const renderHighlightedContent = (text: string, highlight: string) => {
@@ -32,7 +33,7 @@ export function About() {
       <a
         href="/CV Nicolas Ramanantsoa MSC.pdf"
         download
-        className="flex flex-row-reverse items-center justify-center gap-2 bg-[#FF9F87] hover:bg-[#FF8B6E] text-white rounded-full px-8 py-3 w-full md:w-auto transition-colors"
+        className="flex flex-row-reverse items-center justify-center gap-2 bg-[#F2956A] hover:bg-[#FF8B6E] text-white rounded-full px-8 py-3 w-full md:w-auto transition-colors"
       >
         <Download size={20} />
         Download my resume here
@@ -47,14 +48,19 @@ export function About() {
       imageSrc="/Moi.jpg"
       imageAlt="Nicolas Ramanantsoa"
       footer={downloadSection}
-      isFirstSection={true}
     >
-      <p className="text-lg text-[#333333] leading-relaxed">
+      <p
+        className={`${aptos.className} text-lg text-[#333333] leading-relaxed`}
+      >
         {renderHighlightedContent(aboutContent, "web development")}
       </p>
 
       <div className="flex flex-wrap items-center gap-4 mt-8">
-        <h3 className="text-3xl font-bold text-[#141414] mr-4">Education</h3>
+        <h3
+          className={`${extraaptos.className} text-3xl font-bold text-[#141414] mr-4`}
+        >
+          Education
+        </h3>
         <div className="bg-[#F8BDA0] px-6 py-2 rounded-full">
           <Image
             width={120}
@@ -69,7 +75,10 @@ export function About() {
       <div className="flex flex-wrap items-center gap-4 mt-8">
         <h3 className="text-3xl font-bold text-[#141414] mr-4">Hobbies</h3>
         {["Video Games", "Chess", "Boxing"].map((hobby, index) => (
-          <span key={index} className="bg-[#F8BDA0] px-6 py-2 rounded-full">
+          <span
+            key={index}
+            className={` ${extraaptos.className} bg-[#F8BDA0] px-6 py-2 rounded-full`}
+          >
             {hobby}
           </span>
         ))}

@@ -91,7 +91,7 @@ export function Navbar() {
                       "flex items-center gap-2 px-4 py-2 rounded-full",
                       "font-medium transition-all duration-300",
                       activeSection === item.name.toLowerCase()
-                        ? "bg-[#FFB5A1] text-white"
+                        ? "bg-[#F2956A] text-white"
                         : "text-[#141414] hover:bg-[#FFB5A1]/50"
                     )}
                     role="menuitem"
@@ -144,7 +144,7 @@ export function Navbar() {
                   "flex items-center gap-2 px-4 py-3 rounded-full w-full",
                   "font-medium transition-all duration-300",
                   activeSection === item.name.toLowerCase()
-                    ? "bg-[#FFB5A1] text-white"
+                    ? "bg-[#F2956A] text-white"
                     : "text-[#141414] hover:bg-[#FFB5A1]/50"
                 )}
                 role="menuitem"
@@ -187,7 +187,7 @@ export function Navbar() {
                   "flex items-center py-3 px-3 rounded-full w-full bg-[#FFD7CC]",
                   "font-medium transition-all duration-300 relative",
                   activeSection === item.name.toLowerCase()
-                    ? "bg-[#FFB5A1] text-white"
+                    ? "bg-[#FFC7AB] text-white"
                     : "text-[#141414] hover:bg-[#FFB5A1]",
                   hoveredItem === item.name.toLowerCase()
                     ? "w-auto"

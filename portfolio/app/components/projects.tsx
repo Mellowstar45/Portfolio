@@ -15,12 +15,7 @@ export function Projects() {
   };
 
   return (
-    <Box
-      id="projects"
-      title="My Projects"
-      layout="full-width"
-      isMiddleSection={true}
-    >
+    <Box id="projects" title="My Projects" layout="full-width">
       <Carousel options={OPTIONS} />
     </Box>
   );

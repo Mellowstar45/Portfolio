@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import sendMail from "../actions/send-mail";
+import { aptos } from "../utils/fonts";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
@@ -18,8 +19,8 @@ const Contact = () => {
       className="w-full flex items-center justify-center sm:p-6"
       id="contact"
     >
-      <div className="w-full max-w-md bg-[#ffc7ab] rounded-lg p-5 sm:p-6">
-        <h2 className="text-3xl font-bold text-center mb-5 text-[#333]">
+      <div className="w-full max-w-md bg-[#FFC7AB] rounded-lg p-5 sm:p-6">
+        <h2 className="text-3xl font-bold text-center mb-5 text-[#141414]">
           Contact Me
         </h2>
 
@@ -27,7 +28,7 @@ const Contact = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium mb-1.5 text-[#333]"
+              className={`${aptos.className} block text-sm font-medium mb-1.5 text-[#141414]`}
             >
               Email
             </label>
@@ -37,7 +38,7 @@ const Contact = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-[#F8A47E] rounded-md text-[#333] bg-white focus:outline-none"
+              className="w-full px-3 py-2 border border-[#F8A47E] rounded-md text-[#141414] bg-white focus:outline-none"
               required
             />
           </div>
@@ -45,7 +46,7 @@ const Contact = () => {
           <div>
             <label
               htmlFor="subject"
-              className="block text-sm font-medium mb-1.5 text-[#333]"
+              className={`${aptos.className} block text-sm font-medium mb-1.5 text-[#141414]`}
             >
               Subject
             </label>
@@ -55,7 +56,7 @@ const Contact = () => {
               name="subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full px-3 py-2 border border-[#F8A47E] rounded-md text-[#333] bg-white focus:outline-none"
+              className="w-full px-3 py-2 border border-[#F8A47E] rounded-md text-[#141414] bg-white focus:outline-none"
               required
             />
           </div>
@@ -63,9 +64,9 @@ const Contact = () => {
           <div>
             <label
               htmlFor="content"
-              className="block text-sm font-medium mb-1.5 text-[#333]"
+              className={`${aptos.className} block text-sm font-medium mb-1.5 text-[#141414]`}
             >
-              Content
+              Message
             </label>
             <textarea
               id="content"
@@ -73,7 +74,7 @@ const Contact = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={4}
-              className="w-full px-3 py-2 border border-[#F8A47E] rounded-md text-[#333] bg-white focus:outline-none"
+              className="w-full px-3 py-2 border border-[#F8A47E] rounded-md text-[#141414] bg-white focus:outline-none"
               required
             />
           </div>
@@ -81,7 +82,7 @@ const Contact = () => {
           <div className="flex justify-center mt-5">
             <button
               type="submit"
-              className="bg-[#F8A47E] text-white py-2 px-8 rounded-full font-medium hover:bg-[#F8A47E]/90 transition duration-300 text-sm"
+              className="bg-[#F2956A] text-white py-2 px-8 rounded-full font-medium hover:bg-[#F8A47E]/90 transition duration-300 text-sm"
             >
               Send Message
             </button>

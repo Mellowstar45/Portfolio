@@ -23,3 +23,19 @@ body::before {
 .aptos {
   font-family: "Aptos";
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffd7cc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f2956a;
+  border-radius: 5px;
+}
+html {
+  scrollbar-color: #f2956a #ffd7cc;
+}

@@ -1,4 +1,5 @@
 "use client";
+import { aptos, extraaptos } from "../utils/fonts";
 import { Box } from "./shared/box";
 
 interface SkillIconProps {
@@ -14,7 +15,9 @@ function SkillIcon({ name, icon }: SkillIconProps) {
         alt={`${name} icon`}
         className="w-9 h-9"
       />
-      <span className="text-[#141414] font-medium">{name}</span>
+      <span className={`${aptos.className} text-[#141414] font-medium`}>
+        {name}
+      </span>
     </div>
   );
 }
@@ -26,9 +29,11 @@ interface LanguageProps {
 
 function Language({ language, level }: LanguageProps) {
   return (
-    <div className="bg-[#F8BDA0] rounded-full px-8 py-3 flex justify-between items-center w-full">
-      <span className="font-medium">{language}</span>
-      <span>{level}</span>
+    <div className="bg-[#F2956A] rounded-full px-8 py-3 flex justify-between items-center w-full">
+      <span className={` ${extraaptos.className} text-[#141414] font-medium`}>
+        {language}
+      </span>
+      <span className={`${aptos.className} text-[#141414]`}>{level}</span>
     </div>
   );
 }
@@ -57,14 +62,14 @@ export function Skills() {
   ];
 
   return (
-    <Box id="skills" title="Skills" layout="full-width" isMiddleSection={true}>
+    <Box id="skills" title="Skills" layout="full-width">
       <div className="space-y-12">
-        <div className="bg-[#F8A07E] rounded-lg p-6 md:p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="bg-[#F2956A] rounded-lg p-6 md:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {technologies.map((tech) => (
               <SkillIcon key={tech.name} {...tech} />
             ))}
-            <div className="bg-[#F8BDA0] rounded-full p-3 flex items-center justify-center  col-span-2  mx-auto w-full">
+            <div className="bg-[#FFC7AB] rounded-full p-3 flex items-center justify-center sm:col-span-1 md:col-span-2 lg:col-span-2 mx-auto w-10/12">
               <span className="text-[#141414] font-medium">
                 and more in progress...
               </span>
@@ -73,10 +78,12 @@ export function Skills() {
         </div>
 
         <div>
-          <h3 className="text-2xl font-bold text-[#141414] mb-4 text-center">
+          <h3
+            className={` ${extraaptos.className} text-2xl font-bold text-[#141414] mb-4 text-center`}
+          >
             Languages
           </h3>
-          <div className="bg-[#FFA585] rounded-lg p-6 md:p-8">
+          <div className="bg-[#FFC7AB] rounded-lg p-6 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {languages.map((lang) => (
                 <Language key={lang.language} {...lang} />

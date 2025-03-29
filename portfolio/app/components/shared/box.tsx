@@ -1,6 +1,7 @@
 import type React from "react";
 import Image from "next/image";
 import { cn } from "../../utils/animation-helper";
+import { extraaptos } from "@/app/utils/fonts";
 
 interface BoxProps {
   id?: string;
@@ -24,31 +25,27 @@ export function Box({
   className,
   layout = "left-image",
   footer,
-  isFirstSection = false,
-  isMiddleSection = false,
 }: BoxProps) {
   return (
     <section
       id={id}
       className={cn(
         "min-h-screen flex items-center justify-center",
-        isFirstSection ? "py-12" : "pb-12",
+        "p-12",
         className
       )}
     >
       <div
         className={cn(
           "w-full max-w-5xl mx-auto bg-[#FFF5F2] md:m-28",
-          !isMiddleSection
-            ? isFirstSection
-              ? "rounded-t-3xl"
-              : "rounded-b-3xl"
-            : "",
+          "rounded-3xl",
           "p-4 sm:p-6 md:p-8 shadow-lg"
         )}
       >
         {title && (
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#141414] mb-6 md:mb-8 text-center">
+          <h2
+            className={`${extraaptos.className}text-3xl sm:text-4xl md:text-5xl font-bold text-[#141414] mb-6 md:mb-8 text-center`}
+          >
             {title}
           </h2>
         )}

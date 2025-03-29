@@ -4,42 +4,52 @@ import type React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaOptionsType } from "embla-carousel";
 import { DotButton, useDotButton } from "./carousel-button";
+import { ChevronDown } from "lucide-react";
 import { ProjectCard } from "./projects-box";
 
 const PROJECTS = [
   {
     id: 1,
     title: "E-commerce Website",
-    description: "A fully functional E-commerce website built with React and Symfony",
-    longDescription:
-      "",
+    description:
+      "A fully functional E-commerce website built with React and Symfony. Currently being reworked in NextJS",
     imageSrc: "/Panier.png",
     technologies: ["React", "PHP", "Symfony", "MySQL", "CSS"],
+    githubUrl: "test",
   },
   {
     id: 2,
     title: "LowBack",
-    description: "A project whose aim is to be a backend as a service",
-    longDescription: "",
+    description:
+      "Lowback is my most ambitious project. Alongside some friends, I'm building a Backend-as-a-Service (BaaS) platform using .NET with a microservice-oriented architecture. We've developed a set of interfaces and created packages for npm, PyPI, and NuGet to streamline integration. It currently is still in progress",
     imageSrc: "/LowBack.png",
-    technologies: ["NextJS", "PostgresSQL", ".NET", "C#","NodeJS","Python", "Tailwind CSS"],
+    technologies: [
+      "NextJS",
+      "PostgresSQL",
+      ".NET",
+      "C#",
+      "NodeJS",
+      "Python",
+      "Tailwind CSS",
+    ],
+    githubUrl: undefined,
   },
   {
     id: 3,
     title: "Portfolio Website",
-    description: "A personal portfolio website built with Next.js",
-    longDescription:
-      "Designed and developed a modern portfolio to showcase projects",
+    description: "My current portfolio",
     imageSrc: "/Portfolio2.png",
     technologies: ["Next.js", "Tailwind CSS", "Embla"],
+    githubUrl: "test",
   },
   {
     id: 4,
     title: "Twitter Wish",
-    description: "An app whose aim is to replicate Twitter functionalities",
-    longDescription: "",
+    description:
+      "An app whose aim is to replicate  some of Twitter functionalities using Symfony. Includes tweeting, following, sharing, replying, liking, private messaging...",
     imageSrc: "/twitterwish.png",
     technologies: ["Javascript(ES6)", "HTML", "CSS", "TailwindCSS", "PHP"],
+    githubUrl: "test",
   },
 ];
 
@@ -63,10 +73,16 @@ const Carousel: React.FC<ProjectCarouselProps> = ({ options }) => {
             key={index}
             onClick={() => onDotButtonClick(index)}
             className={`w-6 h-6 rounded-full border-none cursor-pointer transition-colors duration-300 ${
-              index === selectedIndex ? "bg-[#FFA585]" : "bg-[#FFA585]/50"
+              index === selectedIndex ? "bg-[#F2956A]" : "bg-[#FFA585]/50"
             }`}
           />
         ))}
+      </div>
+      <div className="flex justify-center pt-3">
+        <span className="text-[#FFA585] flex items-end gap-1 text-lg font-medium">
+          Drag to scroll
+          <ChevronDown className="text-[#FFA585] h-5 w-5 mb-0.5" />
+        </span>
       </div>
       <div className="overflow-hidden h-[600px]" ref={emblaRef}>
         <div className="embla__container h-full">
