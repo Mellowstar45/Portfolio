@@ -62,7 +62,7 @@ export function Box({
             <div className="flex flex-col items-center md:items-start">
               <div
                 className="relative rounded-lg w-full max-w-[300px] sm:max-w-[350px] mx-auto md:mx-0"
-                style={{ height: "280px", maxHeight: "350px", width: "100%" }}
+                style={{ height: "380px", maxHeight: "450px", width: "100%" }}
               >
                 <Image
                   src={imageSrc || ""}

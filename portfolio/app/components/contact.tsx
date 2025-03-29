@@ -19,7 +19,7 @@ const Contact = () => {
       className="w-full flex items-center justify-center sm:p-6"
       id="contact"
     >
-      <div className="w-full max-w-md bg-[#FFC7AB] rounded-lg p-5 sm:p-6">
+      <div className="w-full max-w-xl bg-[#FFC7AB] rounded-lg p-5 sm:p-6">
         <h2 className="text-3xl font-bold text-center mb-5 text-[#141414]">
           Contact Me
         </h2>
