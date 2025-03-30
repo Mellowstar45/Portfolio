@@ -34,6 +34,7 @@ SECRET_KEY=secret key for Email sending
 NEXT_PUBLIC_SUPABASE_URL=Supabase url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=Database Anon key
 ```
+
 To Get the Supabase ANON KEY and URL you will need to create your own database in Supabase to get your own.
 Unfortunately the secret key for the Email Sending is private so you won't be able to use the email functionality yourself
 
@@ -60,6 +61,19 @@ The easiest way to deploy is to use the [Vercel Platform](https://vercel.com/new
 Check out this [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 Vercel also has a built-in Monitoring of your Website.
+
+## Supabase Database Setup
+
+To set up the database for your portfolio, you need to import the necessary table into your Supabase project.
+
+Go to Supabase, create a new project (or use an existing one).
+
+Once your project is created, navigate to the SQL editor.
+
+Upload or copy the contents of the file Projects-rows.sql (found in the repository) into the SQL editor.
+
+Run the SQL query to create the necessary tables and rows.
+
 ## Project Structure
 
 ```bash
@@ -72,7 +86,21 @@ Vercel also has a built-in Monitoring of your Website.
 ├── .env      # Environment variables
 ├── next.config.js   # Next.js configuration
 ├── tailwind.config.ts # Tailwind configuration
+├── vitest.config.ts   # Vitest configuration
+├── vitest.setup.ts    # Vitest setup file
 └── package.json     # Dependencies and scripts
+```
+
+## Testing
+
+This project uses Vitest for unit testing both frontend and backend code. To run the tests:
+
+```bash
+# Using npm
+npm run test
+
+# Using yarn
+yarn test
 ```
 
 ## Additional Notes
