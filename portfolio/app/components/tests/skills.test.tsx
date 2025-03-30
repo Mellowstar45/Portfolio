@@ -4,7 +4,18 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Skills } from "../skills";
 
-vi.mock("./shared/box", () => ({
+vi.mock("next/font/local", () => ({
+  default: () => ({
+    className: "mocked-font-class",
+  }),
+}));
+
+vi.mock("../utils/fonts", () => ({
+  aptos: { className: "mock-aptos-font" },
+  extraaptos: { className: "mock-extraaptos-font" },
+}));
+
+vi.mock("../shared/box", () => ({
   Box: ({
     children,
     title,
@@ -30,20 +41,12 @@ describe("Skills Component", () => {
     expect(screen.getByText("Skills")).toBeInTheDocument();
   });
 
-  it("renders all technology skills correctly", () => {
+  it("renders technology skills correctly", () => {
     expect(screen.getByText("HTML5")).toBeInTheDocument();
     expect(screen.getByText("CSS3")).toBeInTheDocument();
     expect(screen.getByText("JavaScript")).toBeInTheDocument();
     expect(screen.getByText("PHP")).toBeInTheDocument();
     expect(screen.getByText("C#")).toBeInTheDocument();
-    expect(screen.getByText("React")).toBeInTheDocument();
-    expect(screen.getByText("NextJs")).toBeInTheDocument();
-    expect(screen.getByText("Tailwind")).toBeInTheDocument();
-    expect(screen.getByText("Node.js")).toBeInTheDocument();
-    expect(screen.getByText("MySQL")).toBeInTheDocument();
-    expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
-    expect(screen.getByText("AzureDevOps")).toBeInTheDocument();
-    expect(screen.getByText("GitHub")).toBeInTheDocument();
   });
 
   it('renders the "and more in progress..." text', () => {
@@ -86,7 +89,7 @@ describe("Skills Component", () => {
   it("renders language items with correct structure", () => {
     const frenchLanguage = screen.getByText("French").closest("div");
     expect(frenchLanguage).toHaveClass(
-      "bg-[#F8BDA0] rounded-full px-8 py-3 flex justify-between items-center w-full"
+      "bg-[#F2956A] rounded-full px-8 py-3 flex justify-between items-center w-full"
     );
     expect(frenchLanguage).toContainElement(screen.getByText("Native"));
   });

@@ -15,6 +15,10 @@ describe("Navbar Component", () => {
     vi.clearAllMocks();
 
     Object.defineProperty(window, "scrollY", { value: 0, writable: true });
+    Object.defineProperty(window, "innerHeight", {
+      value: 800,
+      writable: true,
+    });
 
     const sections = ["home", "about", "projects", "skills", "contact"];
     sections.forEach((section) => {
@@ -26,6 +30,8 @@ describe("Navbar Component", () => {
       Object.defineProperty(element, "offsetHeight", { value: 500 });
       document.body.appendChild(element);
     });
+
+    Object.defineProperty(document.body, "offsetHeight", { value: 3000 });
   });
 
   it("renders the navbar correctly", () => {
@@ -35,7 +41,7 @@ describe("Navbar Component", () => {
     expect(mainNav).toBeInTheDocument();
 
     const navItems = within(mainNav).getAllByRole("menuitem");
-    expect(navItems.length).toBe(5); 
+    expect(navItems.length).toBe(5);
 
     const mainNavTexts = navItems.map((item) => item.textContent);
     expect(mainNavTexts.includes("Home")).toBe(true);
@@ -70,9 +76,11 @@ describe("Navbar Component", () => {
     render(<Navbar />);
 
     const mainNav = screen.getByLabelText("Main navigation");
+    const aboutLink = within(mainNav).getAllByText("About")[0].closest("a");
 
-    const aboutLink = within(mainNav).getAllByText("About")[0];
-    fireEvent.click(aboutLink);
+    if (aboutLink) {
+      fireEvent.click(aboutLink);
+    }
 
     expect(window.scrollTo).toHaveBeenCalledWith({
       top: expect.any(Number),
@@ -98,14 +106,24 @@ describe("Navbar Component", () => {
     Object.defineProperty(window, "scrollY", { value: 550 });
     fireEvent.scroll(window);
 
-    const activeLinks = document.querySelectorAll('a[aria-current="page"]');
-    expect(activeLinks.length).toBeGreaterThan(0);
+    const aboutLinks = screen
+      .getAllByText("About")
+      .filter((el) => el.closest("a")?.getAttribute("aria-current") === "page");
 
-    const hasActiveAboutLink = Array.from(activeLinks).some((link) =>
-      link.textContent?.includes("About")
-    );
+    expect(aboutLinks.length).toBeGreaterThan(0);
+  });
 
-    expect(hasActiveAboutLink).toBe(true);
+  it("sets contact as active when scrolled to bottom", () => {
+    render(<Navbar />);
+
+    Object.defineProperty(window, "scrollY", { value: 2200 });
+    fireEvent.scroll(window);
+
+    const contactLinks = screen
+      .getAllByText("Contact")
+      .filter((el) => el.closest("a")?.getAttribute("aria-current") === "page");
+
+    expect(contactLinks.length).toBeGreaterThan(0);
   });
 
   it("has proper accessibility attributes", () => {
